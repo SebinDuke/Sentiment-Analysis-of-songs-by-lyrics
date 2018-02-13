@@ -1,1 +1,72 @@
-1:'Till I Collapse:Eminem:2992:25 To Life:Eminem:6443:A Century Ends:David Gray:3084:A N I C:Sum 41:415:Rain Man:Eminem:3206:Reason to Believe:Sum 41:1567:Requiem:Lamb of God:2518:Rid Of Me:Pj Harvey:2699:Ride The Lightning : Metallica:39710:Ridin':Chamillionaire,sway:27211:Rootless Tree:Damien Rice:26312:Rush:Talib Kweli:22213:Screaming For Vengeance : Judas Priest:28314:Send It Up:King Louie,Kanye West:18115:Sermon:Drowning Pool:25916:Shade Of Blue:Black Rebel Motorcycle Club:26317:Shitlist : L7:17918:Sick : Adelitas Way:19119:Skinny Little Bitch:Hole:19420:Skinnyman : Static-X:22021:So Bad:Eminem:86722:Somebody:Blue October:20323:Something Told Me:Coal Chamber:20224:Somewhat Damaged:Nine Inch Nails:27125:South Of Heaven:Slayer:80826:Sowing Season:Brand New:27327:Space Bound:Eminem:74328:Spaceship:Kanye West:32929:Spade : Marilyn Manson:28230:St. Anger:Metallica:44131:Stan:Eminem:40632:Starfuckers, Inc.:Nine Inch Nails:30033:Stationary Stationery : Anberlin:18134:Stay Away : Nirvana:21535:sum 41:skumfuk:20436:Summer Cannibals : Patti Smith:24937:Surviving The Times : Nas:28338:Sweet Amber:Metallica:32740:T H T:Sum 41:4741:Tell That Mick He Just Made My List Of Things To Do Today : Fall Out Boy:21242:Thanks For Nothing:Sum 41:18443:The Angry Mob : Kaiser Chiefs:28544:The Channel : Limp Bizkit:27845:The Enemy (Album Version):Roadrunner United:28546:The Four Horsemen : Metallica:32147:The Key : Limp Bizkit:8648:The Life And Death Of Mr. Badmouth:Pj Harvey:29049:The Priest : Limp Bizkit:29950:The Propaganda : Limp Bizkit:31651:The Ripper : Judas Priest:16152:The Story : Limp Bizkit:23153:The Surrender:Limp Bizkit:23954:The Unforgiven:Metallica:38955:The Unnamed Feeling : Metallica:42956:The Way I Am:Eminem:29357:Time for You to Go:Sum 41:18258:tyler, the creator:yonkers:24959:Underclass Hero:Sum 41:19460:Use Your Fist And Not Your Mouth:Marilyn Manson:22261:Violet:Hole:20762:Want:Natalie Imbruglia:25763:Want You Bad : The Offspring:20264:Wargasm : L7:16665:We'Re All To Blame:SUM 41:21966:What Are You:David Gray:19267:Wherever I May Roam : Metallica:40768:Who Knew : Eminem:23069:Who The Fuck_:Pj Harvey:12670:With Teeth:Nine Inch Nails:33771:You Could Be Mine : Guns N' Roses:34772:You Know What You Are_:Nine Inch Nails:222
+1:'Till I Collapse:Eminem:299
+2:25 To Life:Eminem:644
+3:A Century Ends:David Gray:308
+4:A N I C:Sum 41:41
+5:Rain Man:Eminem:320
+6:Reason to Believe:Sum 41:156
+7:Requiem:Lamb of God:251
+8:Rid Of Me:Pj Harvey:269
+9:Ride The Lightning : Metallica:397
+10:Ridin':Chamillionaire,sway:272
+11:Rootless Tree:Damien Rice:263
+12:Rush:Talib Kweli:222
+13:Screaming For Vengeance : Judas Priest:283
+14:Send It Up:King Louie,Kanye West:181
+15:Sermon:Drowning Pool:259
+16:Shade Of Blue:Black Rebel Motorcycle Club:263
+17:Shitlist : L7:179
+18:Sick : Adelitas Way:191
+19:Skinny Little Bitch:Hole:194
+20:Skinnyman : Static-X:220
+21:So Bad:Eminem:867
+22:Somebody:Blue October:203
+23:Something Told Me:Coal Chamber:202
+24:Somewhat Damaged:Nine Inch Nails:271
+25:South Of Heaven:Slayer:808
+26:Sowing Season:Brand New:273
+27:Space Bound:Eminem:743
+28:Spaceship:Kanye West:329
+29:Spade : Marilyn Manson:282
+30:St. Anger:Metallica:441
+31:Stan:Eminem:406
+32:Starfuckers, Inc.:Nine Inch Nails:300
+33:Stationary Stationery : Anberlin:181
+34:Stay Away : Nirvana:215
+35:sum 41:skumfuk:204
+36:Summer Cannibals : Patti Smith:249
+37:Surviving The Times : Nas:283
+38:Sweet Amber:Metallica:327
+39:Sweet Amber:Metallica:327
+40:T H T:Sum 41:47
+41:Tell That Mick He Just Made My List Of Things To Do Today : Fall Out Boy:212
+42:Thanks For Nothing:Sum 41:184
+43:The Angry Mob : Kaiser Chiefs:285
+44:The Channel : Limp Bizkit:278
+45:The Enemy (Album Version):Roadrunner United:285
+46:The Four Horsemen : Metallica:321
+47:The Key : Limp Bizkit:86
+48:The Life And Death Of Mr. Badmouth:Pj Harvey:290
+49:The Priest : Limp Bizkit:299
+50:The Propaganda : Limp Bizkit:316
+51:The Ripper : Judas Priest:161
+52:The Story : Limp Bizkit:231
+53:The Surrender:Limp Bizkit:239
+54:The Unforgiven:Metallica:389
+55:The Unnamed Feeling : Metallica:429
+56:The Way I Am:Eminem:293
+57:Time for You to Go:Sum 41:182
+58:tyler, the creator:yonkers:249
+59:Underclass Hero:Sum 41:194
+60:Use Your Fist And Not Your Mouth:Marilyn Manson:222
+61:Violet:Hole:207
+62:Want:Natalie Imbruglia:257
+63:Want You Bad : The Offspring:202
+64:Wargasm : L7:166
+65:We'Re All To Blame:SUM 41:219
+66:What Are You:David Gray:192
+67:Wherever I May Roam : Metallica:407
+68:Who Knew : Eminem:230
+69:Who The Fuck_:Pj Harvey:126
+70:With Teeth:Nine Inch Nails:337
+71:You Could Be Mine : Guns N' Roses:347
+72:You Know What You Are_:Nine Inch Nails:222

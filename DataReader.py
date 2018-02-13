@@ -5,11 +5,14 @@ def readData(path,emotion):
     lyrics=[]
     for i in range(1,101):
         filename=path+emotion+"_"+str(i)+".txt"
-        with open(filename,'r',encoding='latin-1') as file:
-            lyric=file.read()
-            (lyric,count)=re.subn(r"(\\n|\\u....|\t)","",lyric)
-            (lyric,count)=re.subn(r"(\[\d\d:\d\d\.\d\d\])","",lyric)
-            lyrics.append(lyric)
+        try:
+            with open(filename,'r',encoding='latin-1') as file:
+                lyric=file.read()
+                (lyric,count)=re.subn(r"(\\n|\\u....|\t)","",lyric)
+                (lyric,count)=re.subn(r"(\[\d\d:\d\d\.\d\d\])","",lyric)
+                lyrics.append(lyric)
+        except:
+            break
 
 
     #with codecs.open(path+"info.txt", mode='r', errors='ignore') as file:
