@@ -1,5 +1,6 @@
 import re
 
+#function to read one folder to 2d array
 def readData(path,emotion):
     Data=[]
     lyrics=[]

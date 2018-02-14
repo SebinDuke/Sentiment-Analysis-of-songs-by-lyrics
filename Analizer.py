@@ -9,12 +9,16 @@ import pandas as pd
 import re
 from sklearn.naive_bayes import MultinomialNB
 
+#Read training data
 Ang_Songs=DR.readData("Data-Set/Angry/Train/","angry")
 Hap_Songs=DR.readData("Data-Set/Happy/Train/","happy")
 Sad_Songs=DR.readData("Data-Set/Sad/Train/","sad")
 Rel_Songs=DR.readData("Data-Set/Relaxed/Train/","relaxed")
 SongsTrain=[Ang_Songs,Hap_Songs,Sad_Songs,Rel_Songs]
 
+#    PROCESSING TRAINING DATA
+
+#tokenizing training data
 sw = list(stopwords.words("english"))
 lemmatizer=WordNetLemmatizer()
 
@@ -42,6 +46,7 @@ for i in range(4):
 
 #print(SongWordsTrain)
 
+#Building dictionary
 dic={}
 rev_dic=[]
 n=0
@@ -53,7 +58,7 @@ for i in words:
 #print(dic)
 #print(len(rev_dic))
 
-
+#converting tokenized words to word counts
 ListLen=len(SongWordsTrain[0])+len(SongWordsTrain[1])+len(SongWordsTrain[2])+len(SongWordsTrain[3])
 l=len(rev_dic)
 data=np.zeros((ListLen,l+1))
@@ -65,27 +70,27 @@ for i in range(4):
         data[n][-1]=i
         n+=1
 
-
-
 #for d in data:
 #    print(d)
-
-
 np.random.shuffle(data)
 X = data[:,:l]
 Y=data[:,-1]
 
+#Train MultinomialNB model with data
 model = MultinomialNB()
 model.fit(X,Y)
 
 
-
+#Read test data
 Ang_Songs=DR.readData("Data-Set/Angry/Test/","angry")
 Hap_Songs=DR.readData("Data-Set/Happy/Test/","happy")
 Sad_Songs=DR.readData("Data-Set/Sad/Test/","sad")
 Rel_Songs=DR.readData("Data-Set/Relaxed/Test/","relaxed")
 SongsTest=[Ang_Songs,Hap_Songs,Sad_Songs,Rel_Songs]
 
+#   PROCESS TEST DATA
+
+#tokenizing testing data
 def my_tokenizer(s):
     s = s.lower() # downcase
     tokens = word_tokenize(s) # split string into words (tokens)
@@ -105,7 +110,9 @@ for i in range(4):
         SongWordsTest[i].append(s)
 
 #print(SongWordsTrain)
+#No need to build dictionary here
 
+#converting tokenized words to word counts using only word from training dictionary 
 ListLen=len(SongWordsTest[0])+len(SongWordsTest[1])+len(SongWordsTest[2])+len(SongWordsTest[3])
 TestData=np.zeros((ListLen,l+1))
 n=0
@@ -117,14 +124,12 @@ for i in range(4):
         TestData[n][-1]=i
         n+=1
 
-
-
 #for d in data:
 #    print(d)
-
 
 np.random.shuffle(data)
 x =TestData[:,:l]
 y=TestData[:,-1]
 
+#Test the model using testing data
 print("Classification rate for NB: ",model.score(x,y))
