@@ -3,7 +3,7 @@ import re
 def readData(path,emotion):
     Data=[]
     lyrics=[]
-    for i in range(1,101):
+    for i in range(1,107):
         filename=path+emotion+"_"+str(i)+".txt"
         try:
             with open(filename,'r',encoding='latin-1') as file:
@@ -20,6 +20,7 @@ def readData(path,emotion):
         i=0
         for line in file:
             row=line.split(':')
+            row=[i.strip() for i in row]
             row.append(lyrics[i])
             Data.append(row)
             i+=1

@@ -10,10 +10,17 @@ import re
 
 from sklearn.naive_bayes import MultinomialNB
 
-#Ang_Songs=DR.readData("Data-Set/Angry/Train/","angry")
+Ang_Songs=DR.readData("Data-Set/Angry/Train/","angry")
 Hap_Songs=DR.readData("Data-Set/Happy/Train/","happy")
 Sad_Songs=DR.readData("Data-Set/Sad/Train/","sad")
-#Rel_Songs=DR.readData("Data-Set/Relaxed/Train/","relaxed")
+Rel_Songs=DR.readData("Data-Set/Relaxed/Train/","relaxed")
+SongsTrain=[Ang_Songs,Hap_Songs,Sad_Songs,Rel_Songs]
+
+Ang_Songs=DR.readData("Data-Set/Angry/Test/","angry")
+Hap_Songs=DR.readData("Data-Set/Happy/Test/","happy")
+Sad_Songs=DR.readData("Data-Set/Sad/Test/","sad")
+Rel_Songs=DR.readData("Data-Set/Relaxed/Test/","relaxed")
+SongsTest=[Ang_Songs,Hap_Songs,Sad_Songs,Rel_Songs]
 
 sw = list(stopwords.words("english"))
 lemmatizer=WordNetLemmatizer()
@@ -30,27 +37,20 @@ def my_tokenizer(s):
     return tokens
 
 words=[]
-HappySongWords=[]
-for song in Hap_Songs[:1000]:
-    s=song[4]
-    s=my_tokenizer(s)
-    HappySongWords.append(s)
-    for i in s:
-        if i not in words:
-            words.append(i)
+SongWordsTrain=[[],[],[],[]]
+for i in range(4):
+    for song in SongsTrain[i]:
+        s=song[4]
+        s=my_tokenizer(s)
+        SongWordsTrain[i].append(s)
+        for j in s:
+            if j not in words:
+                words.append(j)
 
-SadSongWords=[]
-for song in Sad_Songs[:1000]:
-    s=song[4]
-    s=my_tokenizer(s)
-    SadSongWords.append(s)
-    for i in s:
-        if i not in words:
-            words.append(i)
-
-#print(HappySongWords)
+print(SongWordsTrain)
 #print(SadSongWords)
 
+"""
 dic={}
 rev_dic=[]
 n=0
@@ -59,7 +59,7 @@ for i in words:
     rev_dic.append(i)
     n+=1
 
-#print(len(dic))
+print(dic)
 #print(len(rev_dic))
 
 
@@ -79,8 +79,8 @@ for song in SadSongWords:
         data[n][-1]=1
     n+=1
 
-for d in data:
-    print(d)
+#for d in data:
+#    print(d)
 
 np.random.shuffle(data)
 X = data[:,:l]
@@ -91,10 +91,11 @@ Ytrain = Y[:-150,]
 Xtest = X[-50:,]
 Ytext = Y[-50:,]
 
-print(Xtrain)
-print(Ytrain)
+#print(Xtrain)
+#print(Ytrain)
 
 
 model = MultinomialNB()
 model.fit(Xtrain,Ytrain)
 print("Classification rate for NB: ",model.score(Xtest,Ytext))
+"""
