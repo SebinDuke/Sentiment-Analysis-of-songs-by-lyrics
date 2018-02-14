@@ -127,9 +127,19 @@ for i in range(4):
 #for d in data:
 #    print(d)
 
-np.random.shuffle(data)
+#np.random.shuffle(data)
 x =TestData[:,:l]
 y=TestData[:,-1]
 
 #Test the model using testing data
 print("Classification rate for NB: ",model.score(x,y))
+prediction=model.predict(x)
+
+k=0
+for i in range(4):
+    for j in range(len(SongsTest[i])):
+        if(y[k]==prediction[k]):
+            print("Correct: ",SongsTest[i][j][0],SongsTest[i][j][1])
+        else:
+            print("Inorrect:",SongsTest[i][j][0],SongsTest[i][j][1])
+        k+=1
