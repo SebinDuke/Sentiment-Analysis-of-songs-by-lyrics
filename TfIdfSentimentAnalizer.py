@@ -1,6 +1,6 @@
 import DataReader as DR
 from nltk.tokenize import word_tokenize
-#from nltk import FreqDist
+from nltk import FreqDist
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 #import random
@@ -33,14 +33,55 @@ def my_tokenizer(s):
     tokens = [t for t in tokens if not re.search(r".*\\x\d\d.*",t)] #NOT WORKING
     return tokens
 
-SongWordsTrain=[[],[],[],[]]
 WordsByClass=[[],[],[],[]]
+
 for i in range(4):
     for song in SongsTrain[i]:
         s=song[4]
         s=my_tokenizer(s)
-        SongWordsTrain[i].append(s)
         for j in s:
             WordsByClass[i].append(j)
 
-print(WordsByClass)
+#print(WordsByClass)
+
+NoOfWords=[]
+for i in WordsByClass:
+    NoOfWords.append(len(i))
+
+#print(NoOfWords)
+
+TF=[[],[],[],[]]
+for i in range(4):
+    TF[i]=FreqDist(WordsByClass[i])
+    #print(len(TF[i]))
+    """
+    for j in TF[i].keys():
+        print(j,TF[i][j])
+        """
+
+
+IDF=[{},{},{},{}]
+for i in range(4):
+    for word in TF[i].keys():
+        ct=0
+        for j in range(4):
+            if word in TF[j].keys():
+                ct+=1
+        idf=16/(ct**2)
+        IDF[i][word]=idf
+
+WordImp=[[],[],[],[]]
+for i in range(4):
+    for word in TF[i].keys():
+        WordImp[i].append((word,IDF[i][word]*TF[i][word]))
+
+
+ClassNames=("Angry","Happy","Sad","Relaxed")
+for i in range(4):
+    print("Top Ten most Importent words in class "+ClassNames[i]+" and their TF-IDF scores are:")
+    k=0
+    for j in sorted(WordImp[i],key=lambda imp: imp[1],reverse=True):
+        print(j)
+        k+=1
+        if(k==10):
+            break
