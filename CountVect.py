@@ -45,7 +45,6 @@ print ("Vectorizing test...")
 
 test_x = vectorizer.transform(SongsWordsTTrain[0])
 #print(test_x)
-
 print ("Training...")
 print ("NB...")
 modelA = MultinomialNB()
@@ -68,16 +67,16 @@ print(modelB.score(train_x, SongsWordsTrain[1]))
 
 #score on testing set
 print(modelB.score(test_x,SongsWordsTTrain[1]))
-
+"""
 print ("LR...")
-modelC = LR()
+modelC = LR(multi_class='multinomial')
+modelC.fit( train_x, SongsWordsTrain[1])
 modelC.fit( train_x, SongsWordsTrain[1])
 #score on training set
 print(modelC.score(train_x, SongsWordsTrain[1]))
 #print(modelC.predict(test_x))
 
-
 #score on testing set
 print(modelC.score(test_x,SongsWordsTTrain[1]))
 
-
+"""

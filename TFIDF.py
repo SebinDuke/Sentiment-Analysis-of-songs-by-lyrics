@@ -55,7 +55,7 @@ def tokenize(text):
 #print(SongWordsTrain)
 #print(SongsTrain[:][3])
 
-vectorizer = TfidfVectorizer(tokenizer=tokenize,min_df=1, ngram_range = ( 1 ,3), sublinear_tf = True, stop_words = "english")
+vectorizer = TfidfVectorizer(tokenizer=tokenize,min_df=1, ngram_range = ( 1 ,1), sublinear_tf = True, stop_words = "english")
 
 print ("Vectorizing training...")
 
