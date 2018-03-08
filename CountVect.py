@@ -69,7 +69,7 @@ print(modelB.score(train_x, SongsWordsTrain[1]))
 print(modelB.score(test_x,SongsWordsTTrain[1]))
 """
 print ("LR...")
-modelC = LR(multi_class='multinomial')
+modelC = LR(multi_class='multinomial',solver='newton-cg')
 modelC.fit( train_x, SongsWordsTrain[1])
 modelC.fit( train_x, SongsWordsTrain[1])
 #score on training set
@@ -78,5 +78,4 @@ print(modelC.score(train_x, SongsWordsTrain[1]))
 
 #score on testing set
 print(modelC.score(test_x,SongsWordsTTrain[1]))
-
 """
