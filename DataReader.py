@@ -9,8 +9,8 @@ def readData(path,emotion):
         try:
             with open(filename,'r',encoding='latin-1') as file:
                 lyric=file.read()
-                (lyric,count)=re.subn(r"(\\n|\\u....|\t)","",lyric)
-                (lyric,count)=re.subn(r"(\[\d\d:\d\d\.\d\d\])","",lyric)
+                #(lyric,count)=re.subn(r"(\\n|\\u....|\t)","",lyric)
+                #(lyric,count)=re.subn(r"(\[\d\d:\d\d\.\d\d\])","",lyric)
                 lyrics.append(lyric)
         except:
             break
