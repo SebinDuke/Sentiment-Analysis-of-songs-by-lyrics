@@ -12,6 +12,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier as NN
 from sklearn.metrics import confusion_matrix
 from pandas_ml import ConfusionMatrix
+from sklearn.decomposition import  LatentDirichletAllocation
+
 #import seaborn as sns
 
 #Read training data
@@ -43,8 +45,8 @@ for i in range(4):
 		SongsWordsTTrain[1].append(i)
      
 
-stemmer = PorterStemmer()
-#stemmer = SnowballStemmer("english")
+#stemmer = PorterStemmer()
+stemmer = SnowballStemmer("english")
 tokenizer = RegexpTokenizer("[\w’]+", flags=re.UNICODE)
 
 
@@ -60,12 +62,15 @@ def tokenize(text):
 #print(SongWordsTrain)
 #print(SongsTrain[:][3])
 
-vectorizer = TfidfVectorizer(tokenizer=tokenize,min_df=1, ngram_range = ( 1 ,3), sublinear_tf = True, stop_words = "english")
+vectorizer = TfidfVectorizer(tokenizer=tokenize,min_df=2, ngram_range = (1,3), sublinear_tf = True, stop_words = "english")
 
 print ("Vectorizing training...")
 
 train_x = vectorizer.fit_transform(SongsWordsTrain[0])
 #print(train_x)
+print(train_x.shape)
+
+print(train_x.getnnz())
 print ("Vectorizing test...")
 #print(vectorizer.get_feature_names())
 
@@ -82,13 +87,15 @@ print(modelA.score(train_x, SongsWordsTrain[1]))
 
 print(modelA.score(test_x,SongsWordsTTrain[1]))
 predict=modelA.predict(test_x)
-"""
+
 confusion_matrix = ConfusionMatrix(SongsWordsTTrain[1], predict)
 #sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=SongsWordsTrain[1], yticklabels=SongsWordsTTrain[1])
-confusion_matrix.plot()
+print(confusion_matrix)
+"""confusion_matrix.plot()
 confusion_matrix.print_stats()
 plt.show()
 """
+
 print ("SVM...")
 modelB = svm.SVC(kernel='linear', C=1, gamma=1) 
 modelB.fit( train_x, SongsWordsTrain[1])
@@ -118,6 +125,18 @@ print(knn.score(train_x, SongsWordsTrain[1]))
 #score on test set
 print(knn.score(test_x,SongsWordsTTrain[1]))
 
+
+"""
+lda = LatentDirichletAllocation(n_components=10, max_iter=5,
+                                learning_method='online',
+                                learning_offset=50.,
+                                random_state=0)
+lda.fit(train_x,SongsWordsTrain[0])
+print(lda.score(train_x, SongsWordsTrain[1]))
+print(lda.score(test_x,SongsWordsTTrain[1]))
+
+"""
+
 """
 print("RandomForestClassifier..")
 clf = RandomForestClassifier(max_depth=2)
@@ -135,7 +154,6 @@ print(neuralnet.score(train_x, SongsWordsTrain[1]))
 
 #score on test set
 print(neuralnet.score(test_x,SongsWordsTTrain[1]))
-
 """
 
 

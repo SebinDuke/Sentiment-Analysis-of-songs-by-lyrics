@@ -73,28 +73,3 @@
 73:Little Smirk:Theory Of A Deadman:211
 74:Lose Yourself:Eminem:330
 75:Lunchbox:Marilyn Manson:274
-76:Marshall Mathers:Eminem:323
-77:Master Of Puppets:Metallica:517
-78:Maybe : Kelly Clarkson:267
-79:Motivation:SUM 41:171
-80:Motorbreath : Metallica:202
-81:Mr. Know It All : Kelly Clarkson:235
-82:Music Box:Eminem:310
-83:My Derailment:Adelitas Way:217
-84:My Life Would Suck Without You:Kelly Clarkson:215
-85:Never Again : Kelly Clarkson:222
-86:Nookie : Limp Bizkit:266
-87:Nothing Else Matters:Metallica:392
-88:One Mic : Nas:269
-89:Only:Nine Inch Nails:701
-90:Orchids:Stone Sour:264
-91:Paint It Black:Vanessa Carlton:215
-92:Pancake:Tori Amos:357
-93:Physical (You'Re So):Nine Inch Nails:331
-94:Pick Up the Phone:Falling In Reverse:279
-95:Picture To Burn:Taylor Swift:179
-96:Pig:Sparklehorse:146
-97:Playing Your Song:Hole:203
-98:Pretend We'Re Dead : L7:235
-99:Pretty Fly (For A White Guy) : The Offspring:189
-100:Pride:Manchester Orchestra:Manchester Orchestra:361 
