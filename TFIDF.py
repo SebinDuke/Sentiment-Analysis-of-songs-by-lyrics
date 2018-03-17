@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier as NN
-from sklearn.metrics import confusion_matrix
-from pandas_ml import ConfusionMatrix
+#from sklearn.metrics import confusion_matrix
+#from pandas_ml import ConfusionMatrix
 from sklearn.decomposition import  LatentDirichletAllocation
 
 #import seaborn as sns
@@ -88,9 +88,9 @@ print(modelA.score(train_x, SongsWordsTrain[1]))
 print(modelA.score(test_x,SongsWordsTTrain[1]))
 predict=modelA.predict(test_x)
 
-confusion_matrix = ConfusionMatrix(SongsWordsTTrain[1], predict)
+#confusion_matrix = ConfusionMatrix(SongsWordsTTrain[1], predict)
 #sns.heatmap(mat.T, square=True, annot=True, fmt='d', cbar=False,xticklabels=SongsWordsTrain[1], yticklabels=SongsWordsTTrain[1])
-print(confusion_matrix)
+#print(confusion_matrix)
 """confusion_matrix.plot()
 confusion_matrix.print_stats()
 plt.show()

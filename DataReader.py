@@ -22,6 +22,7 @@ def readData(path,emotion):
         for line in file:
             row=line.split(':')
             row=[i.strip() for i in row]
+            #row.append(emotion)
             row.append(lyrics[i])
             Data.append(row)
             i+=1
