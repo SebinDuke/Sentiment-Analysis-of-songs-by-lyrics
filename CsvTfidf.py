@@ -6,8 +6,10 @@ from sklearn import svm
 from nltk.tokenize import word_tokenize,RegexpTokenizer
 from nltk.stem import PorterStemmer,SnowballStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer 
-from sklearn.naive_bayes import MultinomialNB
+from sklearn.naive_bayes import MultinomialNB,GaussianNB
 from sklearn.linear_model import LogisticRegression as LR
+#from sklearn.ensemble import RandomForestClassifier
+#from sklearn.neural_network import MLPClassifier
 
 TrainData=[]
 SongsWordsTrain=[]
@@ -61,9 +63,9 @@ for song in TestData:
 #print(TestSongs)
 
 
-vectorizer = TfidfVectorizer(tokenizer=tokenize,min_df=2, ngram_range = (1,2), sublinear_tf = True, stop_words = "english")
+vectorizer = TfidfVectorizer(tokenizer=tokenize, min_df=3, ngram_range = (1,2), sublinear_tf =True, stop_words = "english")
 train_x = vectorizer.fit_transform(TrainSongs[0])
-test_X=vectorizer.transform(TestSongs[0])
+test_x=vectorizer.transform(TestSongs[0])
 WordList=vectorizer.get_feature_names()
 #print(WordList)
 
@@ -77,14 +79,23 @@ print(train_x.shape)
 modelA = MultinomialNB()
 modelA.fit(train_x,TrainSongs[1])
 print("Accuracy of MultinomialNB:")
-print(modelA.score(test_X,TestSongs[1]))
+print(modelA.score(test_x,TestSongs[1]))
 
 modelB = svm.SVC(kernel='linear', C=1, gamma=1) 
 modelB.fit( train_x,TrainSongs[1])
 print("Accuracy of SVM:")
-print(modelB.score(test_X,TestSongs[1]))
+print(modelB.score(test_x,TestSongs[1]))
 
 modelC = LR(multi_class='multinomial',solver='newton-cg')
 modelC.fit( train_x,TrainSongs[1])
 print("Accuracy of Logistic Regression:")
-print(modelC.score(test_X,TestSongs[1]))
+print(modelC.score(test_x,TestSongs[1]))
+
+"""
+modelD = GaussianNB()
+Train_X=train_x.toarray()
+Test_X=test_x.toarray()
+modelD.fit(Train_X,TrainSongs[1])
+print("Accuracy of GaussianNB:")
+print(modelD.score(Test_X,TestSongs[1]))
+"""
