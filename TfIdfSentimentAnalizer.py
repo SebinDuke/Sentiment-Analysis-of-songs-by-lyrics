@@ -1,4 +1,3 @@
-import DataReader as DR
 from nltk.tokenize import word_tokenize
 from nltk import FreqDist
 from nltk.corpus import stopwords
@@ -7,14 +6,17 @@ from nltk.stem import WordNetLemmatizer
 import numpy as np
 import pandas as pd
 import re
+import csv
 from sklearn.naive_bayes import MultinomialNB
 
 #Read training data
-Ang_Songs=DR.readData("Data-Set/Angry/Train/","angry")
-Hap_Songs=DR.readData("Data-Set/Happy/Train/","happy")
-Sad_Songs=DR.readData("Data-Set/Sad/Train/","sad")
-Rel_Songs=DR.readData("Data-Set/Relaxed/Train/","relaxed")
-SongsTrain=[Ang_Songs,Hap_Songs,Sad_Songs,Rel_Songs]
+SongsTrain=[[],[],[],[]]
+emotionToNum={"angry":0,"happy":1,"sad":2,"relaxed":3}
+with open("FullDataSet/Train.csv","r") as file:
+    reader=csv.reader(file)
+    for row in reader:
+        i=emotionToNum[row[4]]
+        SongsTrain[i].append(row)
 
 #    PROCESSING TRAINING DATA
 
@@ -37,11 +39,10 @@ WordsByClass=[[],[],[],[]]
 
 for i in range(4):
     for song in SongsTrain[i]:
-        s=song[4]
+        s=song[5]
         s=my_tokenizer(s)
         for j in s:
             WordsByClass[i].append(j)
-
 #print(WordsByClass)
 
 NoOfWords=[]
@@ -73,15 +74,48 @@ for i in range(4):
 WordImp=[[],[],[],[]]
 for i in range(4):
     for word in TF[i].keys():
-        WordImp[i].append((word,IDF[i][word]*TF[i][word]))
+        WordImp[i].append((word,IDF[i][word]*TF[i][word]/NoOfWords[i]))
 
 
-ClassNames=("Angry","Happy","Sad","Relaxed")
+ClassNames=("angry","happy","sad","relaxed")
+ClassifiactionWords=[{},{},{},{}]
 for i in range(4):
-    print("Top Ten most Importent words in class "+ClassNames[i]+" and their TF-IDF scores are:")
+    #print("Top hundred most Importent words in class "+ClassNames[i]+" and their TF-IDF scores are:")
     k=0
     for j in sorted(WordImp[i],key=lambda imp: imp[1],reverse=True):
-        print(j)
+        #print(j)
+        ClassifiactionWords[i][j[0]]=j[1]
         k+=1
-        if(k==10):
+        if(k==5000):
             break
+
+#print(ClassifiactionWords)
+
+#Read Testinging Data
+SongsTest=[]
+with open("PartialDataSet/Test.csv","r") as file:
+    reader=csv.reader(file)
+    for row in reader:
+        SongsTest.append(row)
+
+def predictSong(song):
+    score=[0,0,0,0]
+    for i in song:
+        for j in range(4):
+            if i in ClassifiactionWords[j].keys():
+                score[j]+=ClassifiactionWords[j][i]
+    index=score.index(max(score))
+    return index
+
+accuracy=0
+for song in SongsTest:
+    s=song[5]
+    s=my_tokenizer(s)
+    prediction=predictSong(s)
+    prediction=ClassNames[prediction]
+    print(song[1],song[2],song[4],prediction)
+    
+    if(song[4]==prediction):
+        accuracy+=1
+
+print(accuracy)     #(accuracy/100)*100=accuracy

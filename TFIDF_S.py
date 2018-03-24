@@ -1,5 +1,5 @@
 from sklearn.metrics import classification_report
-import eli5
+#import eli5
 import numpy as np
 import DataReader_S as DR
 from sklearn import svm
@@ -14,7 +14,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier as NN
 from sklearn.metrics import confusion_matrix
-from pandas_ml import ConfusionMatrix
+#from pandas_ml import ConfusionMatrix
 from sklearn.decomposition import  LatentDirichletAllocation
 
 #import seaborn as sns
@@ -101,7 +101,7 @@ print ("Vectorizing test...")
 
 #for i in vectorizer.get_feature_names():
 #	print(i)
-#print(vectorizer.get_feature_names())
+print(vectorizer.get_feature_names())
 
 test_x = vectorizer.transform(SongsWordsTTrain[0])
 #print(test_x)
