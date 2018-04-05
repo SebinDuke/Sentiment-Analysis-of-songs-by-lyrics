@@ -80,13 +80,13 @@ for i in range(4):
 ClassNames=("angry","happy","sad","relaxed")
 ClassifiactionWords=[{},{},{},{}]
 for i in range(4):
-    #print("Top hundred most Importent words in class "+ClassNames[i]+" and their TF-IDF scores are:")
+    print("Top hundred most Importent words in class "+ClassNames[i]+" and their TF-IDF scores are:")
     k=0
     for j in sorted(WordImp[i],key=lambda imp: imp[1],reverse=True):
-        #print(j)
+        print(j)
         ClassifiactionWords[i][j[0]]=j[1]
         k+=1
-        if(k==5000):
+        if(k==100):
             break
 
 #print(ClassifiactionWords)
